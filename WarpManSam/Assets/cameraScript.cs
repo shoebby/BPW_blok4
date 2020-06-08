@@ -5,22 +5,27 @@ using UnityEngine;
 public class cameraScript : MonoBehaviour
 {
     Camera cam;
-    public float baseSize = 5.386971f;
+    private float screenshakeIntensity;
+    private Vector3 initialPosition;
 
     public void Start()
     {
         cam = GetComponent<Camera>();
-        cam.orthographicSize = baseSize;
+
+        screenshakeIntensity = 0f;
+        initialPosition = transform.localPosition;
     }
 
     public void FixedUpdate()
     {
-        if (Input.GetMouseButton(0) && cam.orthographicSize >= 5f)
+        transform.localPosition = initialPosition + Random.insideUnitSphere * screenshakeIntensity;
+
+        if (Input.GetMouseButton(0))
         {
-            cam.orthographicSize -=  0.001f;
+            screenshakeIntensity += 0.0005f;
         } else
         {
-            cam.orthographicSize = baseSize;
+            screenshakeIntensity = 0f;
         }
     }
 }

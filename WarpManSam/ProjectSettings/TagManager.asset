@@ -16,7 +16,7 @@ TagManager:
   - 
   - 
   - WallLayer
-  - 
+  - PostProcessing
   - 
   - 
   - 
@@ -40,6 +40,12 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Ground
+    uniqueID: 2696927053
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Player
+    uniqueID: 4027053291
     locked: 0

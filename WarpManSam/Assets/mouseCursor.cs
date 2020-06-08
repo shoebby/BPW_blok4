@@ -28,7 +28,7 @@ public class mouseCursor : MonoBehaviour
         Vector2 cursorPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         transform.position = cursorPos;
 
-        if (Physics2D.CircleCast(transform.position, 0.3f, Vector3.forward, 1, wallLayer))
+        if (Physics2D.CircleCast(transform.position, 0.35f, Vector3.forward, 1, wallLayer))
         {
             spriteRenderer.color = noTP;
         } else
