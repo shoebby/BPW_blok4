@@ -1,21 +1,31 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class bullet : MonoBehaviour
 {
     public float bulletSpeed = 0.1f;
+    public GameObject impactEffect;
 
     private void FixedUpdate()
     {
         transform.Translate(new Vector3(0, bulletSpeed * Time.deltaTime, 0) * Time.deltaTime);
     }
 
-    void OnCollisionEnter2D(Collision2D col)
+    void OnTriggerEnter2D(Collider2D other)
     {
-        if (col.gameObject.tag == "wall")
+        if (other.gameObject.tag == "Player")
         {
-            Destroy(col.gameObject);
+            Instantiate(impactEffect, transform.position, transform.rotation);
+            Destroy(gameObject);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+
+        if (other.gameObject.tag == "Wall")
+        {
+            Instantiate(impactEffect, transform.position, transform.rotation);
+            Destroy(gameObject);
         }
     }
 }

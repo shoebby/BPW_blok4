@@ -8,7 +8,6 @@ public class playerMovement : MonoBehaviour
     public Vector3 target;
     public Vector3 previousPosition;
     public GameObject bullet;
-    public GameObject rangeIndicator;
 
     Rigidbody2D rb;
     Vector2 movement;
@@ -24,8 +23,6 @@ public class playerMovement : MonoBehaviour
 
     void Update()
     {
-        rangeIndicator.SetActive(false);
-
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
 
@@ -34,7 +31,6 @@ public class playerMovement : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
             timeManager.doSlowmotion();
-            rangeIndicator.SetActive(true);
         }
 
         if (Input.GetMouseButtonUp(0))
