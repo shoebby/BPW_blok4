@@ -6,7 +6,6 @@ public class mouseCursor : MonoBehaviour
 {
     SpriteRenderer spriteRenderer;
 
-    private Vector4 inactive;
     private Vector4 active;
     private Vector4 noTP;
 
@@ -15,11 +14,13 @@ public class mouseCursor : MonoBehaviour
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+
         Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Confined;
+
 
         active = new Vector4(1f, 1f, 1f, 0.35f);
         noTP = new Vector4(1f, 0f, 0f, 0.35f);
-        spriteRenderer.color = inactive;
     }
 
     void Update()
@@ -27,7 +28,7 @@ public class mouseCursor : MonoBehaviour
         Vector2 cursorPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         transform.position = cursorPos;
 
-        if (Physics2D.Raycast(transform.position, Vector3.forward, 1, wallLayer))
+        if (Physics2D.CircleCast(transform.position, 0.3f, Vector3.forward, 1, wallLayer))
         {
             spriteRenderer.color = noTP;
         } else

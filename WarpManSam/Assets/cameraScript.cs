@@ -4,15 +4,23 @@ using UnityEngine;
 
 public class cameraScript : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    Camera cam;
+    public float baseSize = 5.386971f;
+
+    public void Start()
     {
-        
+        cam = GetComponent<Camera>();
+        cam.orthographicSize = baseSize;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void FixedUpdate()
     {
-        
+        if (Input.GetMouseButton(0) && cam.orthographicSize >= 5f)
+        {
+            cam.orthographicSize -=  0.001f;
+        } else
+        {
+            cam.orthographicSize = baseSize;
+        }
     }
 }

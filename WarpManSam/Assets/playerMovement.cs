@@ -37,7 +37,7 @@ public class playerMovement : MonoBehaviour
 
         if (Input.GetMouseButtonUp(0))
         {
-            if (Physics2D.Raycast(mousePos, Vector3.forward, 1, WallLayer))
+            if (Physics2D.CircleCast(mousePos, 0.3f, Vector3.forward, 1, WallLayer))
             {
                 Debug.Log("nothing");
             }
