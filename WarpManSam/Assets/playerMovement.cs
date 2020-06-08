@@ -15,6 +15,8 @@ public class playerMovement : MonoBehaviour
 
     public timeManager timeManager;
 
+    public LayerMask WallLayer;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -35,7 +37,14 @@ public class playerMovement : MonoBehaviour
 
         if (Input.GetMouseButtonUp(0))
         {
-            Teleport();
+            if (Physics2D.Raycast(mousePos, Vector3.forward, 1, WallLayer))
+            {
+                Debug.Log("nothing");
+            }
+            else
+            {
+                Teleport();
+            }
         }
     }
 
@@ -46,7 +55,7 @@ public class playerMovement : MonoBehaviour
         rb.rotation = angle;
     }
 
-    void Teleport()
+    public void Teleport()
     {
         previousPosition = gameObject.transform.position;
 

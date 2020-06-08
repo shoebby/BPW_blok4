@@ -10,12 +10,13 @@ public class mouseCursor : MonoBehaviour
     private Vector4 active;
     private Vector4 noTP;
 
+    public LayerMask wallLayer;
+
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         Cursor.visible = false;
 
-        inactive = new Vector4(0.5f, 0.5f, 0.5f, 0.35f);
         active = new Vector4(1f, 1f, 1f, 0.35f);
         noTP = new Vector4(1f, 0f, 0f, 0.35f);
         spriteRenderer.color = inactive;
@@ -26,28 +27,10 @@ public class mouseCursor : MonoBehaviour
         Vector2 cursorPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         transform.position = cursorPos;
 
-        if (Input.GetMouseButtonDown(0))
-        {
-            spriteRenderer.color = active;
-        }
-
-        if (Input.GetMouseButtonUp(0))
-        {
-            spriteRenderer.color = inactive;
-        }
-    }
-
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.tag == "Wall")
+        if (Physics2D.Raycast(transform.position, Vector3.forward, 1, wallLayer))
         {
             spriteRenderer.color = noTP;
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.gameObject.tag == "Wall")
+        } else
         {
             spriteRenderer.color = active;
         }

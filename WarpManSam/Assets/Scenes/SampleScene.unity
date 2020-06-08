@@ -144,6 +144,7 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
+  - component: {fileID: 519420030}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -159,6 +160,18 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
+--- !u!114 &519420030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3b55764886d4664c9059e3db3f92a49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -228,7 +241,7 @@ GameObject:
   - component: {fileID: 616779423}
   - component: {fileID: 616779422}
   - component: {fileID: 616779421}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: outerWall_regular
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -325,7 +338,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 3
-      m_TileSpriteIndex: 7
+      m_TileSpriteIndex: 17
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -640,7 +653,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 4
-      m_TileSpriteIndex: 4
+      m_TileSpriteIndex: 16
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -1585,7 +1598,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 5
-      m_TileSpriteIndex: 5
+      m_TileSpriteIndex: 15
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -1900,7 +1913,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 6
-      m_TileSpriteIndex: 6
+      m_TileSpriteIndex: 14
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -1956,18 +1969,14 @@ Tilemap:
   - m_RefCount: 18
     m_Data: {fileID: -2385690550065810451, guid: d158492ddff0f4c4eb90674114bedbd8,
       type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: -7762984543145404058, guid: d158492ddff0f4c4eb90674114bedbd8,
-      type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: -3723073751284748845, guid: d158492ddff0f4c4eb90674114bedbd8,
-      type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: -4208387165012461353, guid: d158492ddff0f4c4eb90674114bedbd8,
-      type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: 8255927306806892837, guid: d158492ddff0f4c4eb90674114bedbd8,
-      type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 34
     m_Data: {fileID: -6611256928076957875, guid: d158492ddff0f4c4eb90674114bedbd8,
       type: 3}
@@ -1982,14 +1991,18 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: -4208387165012461353, guid: d158492ddff0f4c4eb90674114bedbd8,
+      type: 3}
+  - m_RefCount: 1
+    m_Data: {fileID: -3723073751284748845, guid: d158492ddff0f4c4eb90674114bedbd8,
+      type: 3}
+  - m_RefCount: 1
+    m_Data: {fileID: -7762984543145404058, guid: d158492ddff0f4c4eb90674114bedbd8,
+      type: 3}
+  - m_RefCount: 1
+    m_Data: {fileID: 8255927306806892837, guid: d158492ddff0f4c4eb90674114bedbd8,
+      type: 3}
   m_TileMatrixArray:
   - m_RefCount: 176
     m_Data:
@@ -2048,7 +2061,7 @@ GameObject:
   - component: {fileID: 652143991}
   - component: {fileID: 652143990}
   - component: {fileID: 652143989}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: outerWall_pit
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -10696,6 +10709,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6056619673010606638, guid: 726e1ebfeb4904446be437b546496c88,
+        type: 3}
+      propertyPath: wallLayer.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
     - target: {fileID: 6395744890947529543, guid: 726e1ebfeb4904446be437b546496c88,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10835,5 +10853,10 @@ PrefabInstance:
       propertyPath: timeManager
       value: 
       objectReference: {fileID: 197394398}
+    - target: {fileID: 3564235083855480094, guid: 62713ae96ea133041b609ed8328b3135,
+        type: 3}
+      propertyPath: WallLayer.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 62713ae96ea133041b609ed8328b3135, type: 3}
