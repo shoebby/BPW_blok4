@@ -28,11 +28,12 @@ public class aberrationIncrease : MonoBehaviour
             {
                 chromatic.intensity.value += 0.005f;
             }
-            currentChromaticIntensity = targetChromaticIntensityLower;
-        }
-        else
+        } else
         {
-            chromatic.intensity.value = 0f;
+            if (chromatic.intensity.value > targetChromaticIntensityLower)
+            {
+                chromatic.intensity.value -= 0.025f;
+            }
         }
     }
 }

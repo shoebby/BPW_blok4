@@ -44,7 +44,7 @@ public class playerMovement : MonoBehaviour
 
             if (currentMana > minMana)
             {
-                currentMana -= 0.05f;
+                currentMana -= 0.01f;
                 manaBar.setMana(currentMana);
             }
         }
