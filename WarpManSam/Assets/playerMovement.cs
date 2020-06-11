@@ -8,7 +8,7 @@ public class playerMovement : MonoBehaviour
     public Vector3 target;
     public Vector3 previousPosition;
     public GameObject bullet;
-    public healthbar manaBar;
+    public healthbar chargeBar;
 
     Rigidbody2D rb;
     Vector2 movement;
@@ -18,17 +18,17 @@ public class playerMovement : MonoBehaviour
 
     public LayerMask WallLayer;
 
-    public float maxMana = 100f;
-    public float minMana = 0f;
-    public float currentMana;
+    public float maxCharges = 4f;
+    public float minCharges = 0f;
+    public float currentCharges;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         target = transform.position;
 
-        currentMana = maxMana;
-        manaBar.setMaxMana(currentMana);
+        currentCharges = maxCharges;
+        chargeBar.setMaxCharges(currentCharges);
     }
 
     void Update()
@@ -41,20 +41,9 @@ public class playerMovement : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
             timeManager.doSlowmotion();
-
-            if (currentMana > minMana)
-            {
-                currentMana -= 0.01f;
-                manaBar.setMana(currentMana);
-            }
-        }
-        else
-        {
-            manaRegen();
-            manaBar.setMana(currentMana);
         }
 
-        if (Input.GetMouseButtonUp(0) && currentMana >= 25)
+        if (Input.GetMouseButtonUp(0) && currentCharges >= 1)
         {
             if (Physics2D.CircleCast(mousePos, 0.35f, Vector3.forward, 1, WallLayer))
             {
@@ -76,8 +65,8 @@ public class playerMovement : MonoBehaviour
 
     public void Teleport()
     {
-        currentMana = currentMana - 25;
-        manaBar.setMana(currentMana);
+        currentCharges = currentCharges - 1;
+        chargeBar.setCharges(currentCharges);
 
         previousPosition = gameObject.transform.position;
 
@@ -89,13 +78,5 @@ public class playerMovement : MonoBehaviour
         go.transform.rotation = transform.rotation;
 
         timeManager.doSlowmotion();
-    }
-
-    public void manaRegen()
-    {
-        if (currentMana < maxMana)
-        {
-            currentMana += 0.1f;
-        }
     }
 }

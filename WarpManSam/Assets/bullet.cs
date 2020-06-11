@@ -27,5 +27,11 @@ public class bullet : MonoBehaviour
             Instantiate(impactEffect, transform.position, transform.rotation);
             Destroy(gameObject);
         }
+
+        if (other.gameObject.tag == "Brazier")
+        {
+            other.gameObject.GetComponent<Animator>().enabled = true;
+            Destroy(gameObject);
+        }
     }
 }
