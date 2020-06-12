@@ -327,6 +327,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 073e2b50581940d499f4e8dc92d29afa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &433047856 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 9058646904136100158, guid: befce47a65e4f334aa77b2fc2c86a3d5,
+    type: 3}
+  m_PrefabInstance: {fileID: 2034596597}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -8742,7 +8748,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -14700,6 +14706,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5016800600123126204, guid: befce47a65e4f334aa77b2fc2c86a3d5,
+        type: 3}
+      propertyPath: transition
+      value: 
+      objectReference: {fileID: 433047856}
     - target: {fileID: 5311267181310254123, guid: befce47a65e4f334aa77b2fc2c86a3d5,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -9,6 +9,7 @@ TagManager:
   - Brazier
   - levelExit
   - Splitter
+  - Enemy
   layers:
   - Default
   - TransparentFX

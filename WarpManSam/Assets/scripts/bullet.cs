@@ -40,5 +40,14 @@ public class bullet : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        if (other.gameObject.tag == "Enemy")
+        {
+            GameObject.Find("player").GetComponent<playerMovement>().currentCharges = 4;
+            GameObject.Find("player").GetComponent<playerMovement>().chargeBar.setMaxCharges(4);
+
+            Instantiate(impactEffect, transform.position, transform.rotation);
+            Destroy(gameObject);
+        }
     }
 }
