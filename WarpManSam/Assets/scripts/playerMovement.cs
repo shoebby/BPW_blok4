@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
+using UnityEngine.SceneManagement;
 
 public class playerMovement : MonoBehaviour
 {
@@ -53,6 +54,11 @@ public class playerMovement : MonoBehaviour
             {
                 Teleport();
             }
+        }
+
+        if (currentCharges == 0 && Input.GetMouseButtonDown(0))
+        {
+            GameObject.Find("levelLoader").GetComponent<levelLoader>().ReloadCurrentLevel();
         }
     }
 

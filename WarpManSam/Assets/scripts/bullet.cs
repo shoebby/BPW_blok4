@@ -18,8 +18,10 @@ public class bullet : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             Instantiate(impactEffect, transform.position, transform.rotation);
+
+            GameObject.Find("levelLoader").GetComponent<levelLoader>().ReloadCurrentLevel();
+
             Destroy(gameObject);
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
 
         if (other.gameObject.tag == "Wall")
@@ -31,6 +33,11 @@ public class bullet : MonoBehaviour
         if (other.gameObject.tag == "Brazier")
         {
             other.gameObject.GetComponent<Animator>().enabled = true;
+            Destroy(gameObject);
+        }
+
+        if (other.gameObject.tag == "Splitter")
+        {
             Destroy(gameObject);
         }
     }

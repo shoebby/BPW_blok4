@@ -32,7 +32,7 @@ public class exitToggle : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            SceneManager.LoadScene(1);
+            GameObject.Find("levelLoader").GetComponent<levelLoader>().LoadNextLevel();
         }
     }
 }
