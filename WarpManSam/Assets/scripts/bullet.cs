@@ -19,6 +19,10 @@ public class bullet : MonoBehaviour
         {
             Instantiate(impactEffect, transform.position, transform.rotation);
 
+            GameObject.Find("player").GetComponent<BoxCollider2D>().enabled = false;
+
+            GameObject.Find("player").GetComponentInChildren<Animator>().enabled = true;
+
             GameObject.Find("levelLoader").GetComponent<levelLoader>().ReloadCurrentLevel();
 
             Destroy(gameObject);
@@ -33,6 +37,9 @@ public class bullet : MonoBehaviour
         if (other.gameObject.tag == "Brazier")
         {
             other.gameObject.GetComponent<Animator>().enabled = true;
+
+            GameObject.FindWithTag("Exit").GetComponent<levelExit>().activatedBraziers += 1;
+
             Destroy(gameObject);
         }
 

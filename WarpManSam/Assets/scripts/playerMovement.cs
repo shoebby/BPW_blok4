@@ -56,8 +56,12 @@ public class playerMovement : MonoBehaviour
             }
         }
 
-        if (currentCharges == 0 && Input.GetMouseButtonDown(0))
+        if (Input.GetKeyDown(KeyCode.R))
         {
+            gameObject.GetComponent<BoxCollider2D>().enabled = false;
+
+            gameObject.GetComponentInChildren<Animator>().enabled = true;
+
             GameObject.Find("levelLoader").GetComponent<levelLoader>().ReloadCurrentLevel();
         }
     }

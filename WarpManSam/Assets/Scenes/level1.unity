@@ -8361,7 +8361,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -252}
+  m_AnchoredPosition: {x: 0, y: -537}
   m_SizeDelta: {x: 450, y: 42}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &732212180
@@ -8502,7 +8502,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -8667,7 +8667,6 @@ GameObject:
   - component: {fileID: 1058620945}
   - component: {fileID: 1058620948}
   - component: {fileID: 1058620947}
-  - component: {fileID: 1058620946}
   m_Layer: 8
   m_Name: level1
   m_TagString: Wall
@@ -8694,22 +8693,6 @@ Transform:
   m_Father: {fileID: 1573962450}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!19719996 &1058620946
-TilemapCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1058620944}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_MaximumTileChangeCount: 1000
-  m_ExtrusionFactor: 0.00001
 --- !u!483693784 &1058620947
 TilemapRenderer:
   m_ObjectHideFlags: 0
@@ -9027,8 +9010,8 @@ GameObject:
   - component: {fileID: 1091512936}
   - component: {fileID: 1091512935}
   m_Layer: 0
-  m_Name: trapDoorOpen
-  m_TagString: levelExit
+  m_Name: levelExit
+  m_TagString: Exit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9056,13 +9039,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1091512933}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98a4cbebfdfa8934aa7c895e0774cfd2, type: 3}
+  m_Script: {fileID: 11500000, guid: b750c90d1624f6f4bbd8f3bd0ff38980, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  brazier1: {fileID: 0}
-  brazier2: {fileID: 0}
-  brazier3: {fileID: 0}
-  brazier4: {fileID: 0}
+  activatedBraziers: 0
+  allBraziers: 0
 --- !u!61 &1091512936
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -14770,6 +14751,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: levelLoader
+      objectReference: {fileID: 0}
+    - target: {fileID: 7652455682803863939, guid: befce47a65e4f334aa77b2fc2c86a3d5,
+        type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: befce47a65e4f334aa77b2fc2c86a3d5, type: 3}
