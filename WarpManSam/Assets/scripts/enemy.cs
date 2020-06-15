@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class enemy : MonoBehaviour
 {
+    public AudioSource collapse;
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "bullet")
@@ -12,6 +14,8 @@ public class enemy : MonoBehaviour
             gameObject.GetComponent<BoxCollider2D>().enabled = false;
 
             gameObject.GetComponentInChildren<Animator>().enabled = true;
+
+            collapse.Play();
         }
     }
 }

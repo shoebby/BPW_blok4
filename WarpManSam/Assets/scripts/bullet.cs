@@ -8,6 +8,10 @@ public class bullet : MonoBehaviour
     public float bulletSpeed = 0.1f;
     public GameObject impactEffect;
 
+    public AudioSource brazierOn;
+    public AudioSource collapse;
+    public AudioSource impactSound;
+
     private void FixedUpdate()
     {
         transform.Translate(new Vector3(0, bulletSpeed * Time.deltaTime, 0) * Time.deltaTime);
@@ -21,6 +25,8 @@ public class bullet : MonoBehaviour
 
             GameObject.Find("player").GetComponent<BoxCollider2D>().enabled = false;
 
+            GameObject.Find("player").GetComponent<playerMovement>().enabled = false;
+
             GameObject.Find("player").GetComponentInChildren<Animator>().enabled = true;
 
             GameObject.Find("levelLoader").GetComponent<levelLoader>().ReloadCurrentLevel();
@@ -31,6 +37,7 @@ public class bullet : MonoBehaviour
         if (other.gameObject.tag == "Wall")
         {
             Instantiate(impactEffect, transform.position, transform.rotation);
+
             Destroy(gameObject);
         }
 
@@ -54,6 +61,7 @@ public class bullet : MonoBehaviour
             GameObject.Find("player").GetComponent<playerMovement>().chargeBar.setMaxCharges(4);
 
             Instantiate(impactEffect, transform.position, transform.rotation);
+
             Destroy(gameObject);
         }
     }

@@ -23,6 +23,9 @@ public class playerMovement : MonoBehaviour
     public float minCharges = 0f;
     public float currentCharges;
 
+    public AudioSource teleport;
+    public AudioSource collapse;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -63,6 +66,8 @@ public class playerMovement : MonoBehaviour
             gameObject.GetComponentInChildren<Animator>().enabled = true;
 
             GameObject.Find("levelLoader").GetComponent<levelLoader>().ReloadCurrentLevel();
+
+            collapse.Play();
         }
     }
 
@@ -88,5 +93,6 @@ public class playerMovement : MonoBehaviour
         go.transform.rotation = transform.rotation;
 
         timeManager.doSlowmotion();
+        teleport.Play();
     }
 }

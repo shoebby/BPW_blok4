@@ -5,17 +5,21 @@ using UnityEngine.Tilemaps;
 
 public class leverTrigger : MonoBehaviour
 {
-    public TilemapRenderer leverDown;
     public GameObject Splitter;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "bullet")
+        if (other.gameObject.tag == "Player")
         {
-            leverDown.enabled = true;
-            gameObject.GetComponent<TilemapRenderer>().enabled = false;
-
             Splitter.SetActive(true);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            Splitter.SetActive(false);
         }
     }
 }
