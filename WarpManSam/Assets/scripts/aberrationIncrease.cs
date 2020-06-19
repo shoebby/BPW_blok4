@@ -22,7 +22,7 @@ public class aberrationIncrease : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(1))
         {
             if (chromatic.intensity.value < targetChromaticIntensityUpper)
             {

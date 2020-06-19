@@ -20,7 +20,7 @@ public class cameraScript : MonoBehaviour
     {
         transform.localPosition = initialPosition + Random.insideUnitSphere * screenshakeIntensity;
 
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(1))
         {
             screenshakeIntensity += 0.0005f;
         } else

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class playerMovement : MonoBehaviour
 {
@@ -26,6 +27,8 @@ public class playerMovement : MonoBehaviour
     public AudioSource teleport;
     public AudioSource collapse;
 
+    public GameObject restartText;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -33,6 +36,8 @@ public class playerMovement : MonoBehaviour
 
         currentCharges = maxCharges;
         chargeBar.setMaxCharges(currentCharges);
+
+        restartText.SetActive(false);
     }
 
     void Update()
@@ -42,12 +47,12 @@ public class playerMovement : MonoBehaviour
 
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(1))
         {
             timeManager.doSlowmotion();
         }
 
-        if (Input.GetMouseButtonUp(0) && currentCharges >= 1)
+        if (Input.GetMouseButtonDown(0) && currentCharges >= 1)
         {
             if (Physics2D.CircleCast(mousePos, 0.35f, Vector3.forward, 1, WallLayer))
             {
@@ -68,6 +73,14 @@ public class playerMovement : MonoBehaviour
             GameObject.Find("levelLoader").GetComponent<levelLoader>().ReloadCurrentLevel();
 
             collapse.Play();
+        }
+
+        if (currentCharges <= 0)
+        {
+            StartCoroutine(waitForText());
+        } else
+        {
+            restartText.SetActive(false);
         }
     }
 
@@ -94,5 +107,11 @@ public class playerMovement : MonoBehaviour
 
         timeManager.doSlowmotion();
         teleport.Play();
+    }
+
+    private IEnumerator waitForText()
+    {
+        yield return new WaitForSeconds(1f);
+        restartText.SetActive(true);
     }
 }

@@ -9,6 +9,7 @@ public class arrayEnListNotes : MonoBehaviour
     public List<GameObject> gameObjectsList; //
 
     private Animator[] animators; //specify the component to make an array of that specific component
+    private Collider2D[] colliders;
 
     public int activeArray;
     public int totalArray;
@@ -20,7 +21,7 @@ public class arrayEnListNotes : MonoBehaviour
         gameObjectArray = GameObject.FindGameObjectsWithTag("ArrayItem");
 
         animators = GameObject.FindObjectsOfType<Animator>(); //add all matching components in the scene to the array
-
+        colliders = GameObject.FindObjectsOfType<BoxCollider2D>();
 
         for (int i = 0; i < gameObjectArray.Length; i++) //for loop for arrays
         {
@@ -30,6 +31,7 @@ public class arrayEnListNotes : MonoBehaviour
         for (int i = 0; i < animators.Length; i++) //destroy animators
         {
             Destroy(animators[i].gameObject);
+            Destroy(colliders[i].gameObject);
         }
 
         for (int i = 0; i < gameObjectsList.Count; i++) //for loop for lists

@@ -44,6 +44,7 @@ public class bullet : MonoBehaviour
         if (other.gameObject.tag == "Brazier")
         {
             other.gameObject.GetComponent<Animator>().enabled = true;
+            other.gameObject.GetComponent<BoxCollider2D>().enabled = false;
 
             GameObject.FindWithTag("Exit").GetComponent<levelExit>().activatedBraziers += 1;
 
